@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/artisgarbage/Backend-Candidate-lab",
   "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
     "mongoose": "^4.4.4"
   }
 }
