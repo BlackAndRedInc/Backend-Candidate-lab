@@ -1,0 +1,30 @@
+{
+  "name": "AnthonyChavezBeLab",
+  "version": "1.0.0",
+  "description": "Anthony Chavez, backend candidate lab",
+  "main": "Server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "runTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artisgarbage/Backend-Candidate-lab.git"
+  },
+  "keywords": [
+    "Node.js",
+    "mongoDb",
+    "mongoose"
+  ],
+  "author": "Anthony Chavez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artisgarbage/Backend-Candidate-lab/issues"
+  },
+  "homepage": "https://github.com/artisgarbage/Backend-Candidate-lab",
+  "dependencies": {
+    "mongoose": "^4.4.4"
+  }
+}
