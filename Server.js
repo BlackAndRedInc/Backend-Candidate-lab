@@ -3,7 +3,10 @@ var express     =   require("express");
 var app         =   express();
 var bodyParser  =   require("body-parser");
 var router      =   express.Router();
-var mongoOp     =   require("./models/mongo");
+
+// Mongoose Data Objects
+var userOp     =   require("./models/mongo").User;
+var noteOp     =   require("./models/mongo").Note;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({"extended" : false}));
@@ -15,7 +18,7 @@ router.get("/",function(req,res){
 router.route("/users")
   .get(function(req,res){
     var response = {};
-    mongoOp.find({},function(err,data){
+    userOp.find({},function(err,data){
       if(err) {
         response = {"error" : true, "message" : "Error retrieving user data"};
       } else {
@@ -25,7 +28,7 @@ router.route("/users")
     });
   })
   .post(function(req,res){
-    var db = new mongoOp();
+    var db = new userOp();
     var response = {};
 
     db.usrEmail = req.body.email;
@@ -48,7 +51,7 @@ router.route("/users/:id")
   .get(function(req,res){
     var response = {};
     // Query users by ID
-    mongoOp.findById(req.params.id,function(err,data){
+    userOp.findById(req.params.id,function(err,data){
       if(err) {
         response = {"error" : true, "message" : "Error retrieving user data for" + req.params.id};
       } else {
@@ -59,7 +62,7 @@ router.route("/users/:id")
   })
   .put(function(req,res){
     var response = {};
-    mongoOp.findById(req.params.id,function(err,data){
+    userOp.findById(req.params.id,function(err,data){
       if(err) {
         response = {"error" : true,"message" : "Error retrieving user data for" + req.params.id};
       } else {
@@ -85,11 +88,11 @@ router.route("/users/:id")
   })
   .delete(function(req,res){
     var response = {};
-    mongoOp.findById(req.params.id,function(err,data){
+    userOp.findById(req.params.id,function(err,data){
       if(err) {
         response = {"error" : true,"message" : "Error retrieving user data for" + req.params.id};
       } else {
-        mongoOp.remove({_id : req.params.id},function(err){
+        userOp.remove({_id : req.params.id},function(err){
           if(err) {
             response = {"error" : true, "message" : "Error deleting user data for" + req.params.id};
           } else {
