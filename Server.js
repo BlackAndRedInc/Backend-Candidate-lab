@@ -76,10 +76,27 @@ router.route("/users/:id")
           if(err) {
               response = {"error" : true, "message" : "Error updating user data for " + req.params.id};
           } else {
-              response = {"error" : false, "message" : "User data is updated for " + req.params.id};
+              response = {"error" : false, "message" : "User data is updated for user " + req.params.id};
           }
           res.json(response);
         })
+      }
+    });
+  })
+  .delete(function(req,res){
+    var response = {};
+    mongoOp.findById(req.params.id,function(err,data){
+      if(err) {
+        response = {"error" : true,"message" : "Error retrieving user data for" + req.params.id};
+      } else {
+        mongoOp.remove({_id : req.params.id},function(err){
+          if(err) {
+            response = {"error" : true, "message" : "Error deleting user data for" + req.params.id};
+          } else {
+            response = {"error" : true, "message" : "Data for user " + req.params.id + "is deleted"};
+          }
+          res.json(response);
+        });
       }
     });
   });
