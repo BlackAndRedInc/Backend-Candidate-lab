@@ -61,40 +61,6 @@ describe('Routing', function() {
         done();
       });
     });
-  });
-
-  describe('Users Root API', function() {
-    route = '/users'
-
-    it('response should return an array of users', function(done){
-      request(url)
-      .get(route)
-      .expect('Content-Type', /json/)
-      .expect(200) //Status code
-      .end(function(err,res) {
-        if (err) {
-          throw err;
-        }
-        res.body.should.have.property('users');
-        done();
-      });
-    });
-
-    it('a user should have props : _id, usrPass, usrEmail', function(done){
-      request(url)
-      .get(route)
-      .expect('Content-Type', /json/)
-      .expect(200) //Status code
-      .end(function(err,res) {
-        if (err) {
-          throw err;
-        }
-        res.body.users[0].should.have.property('_id');
-        res.body.users[0].should.have.property('usrPass');
-        res.body.users[0].should.have.property('usrEmail');
-        done();
-      });
-    });
 
 
     it('should accept a properly formatted POST', function(done){
