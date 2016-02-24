@@ -22,7 +22,7 @@ router.route("/users")
       if(err) {
         response = {"error" : true, "message" : "Error retrieving user data"};
       } else {
-        response = {"error" : false, "message" : data};
+        response = {"error" : false, "users" : data};
       }
       res.json(response);
     });
@@ -55,7 +55,7 @@ router.route("/users/:id")
       if(err) {
         response = {"error" : true, "message" : "Error retrieving user data for" + req.params.id};
       } else {
-        response = {"error" : false, "message" : data};
+        response = {"error" : false, "user" : data};
       }
       res.json(response);
     });
