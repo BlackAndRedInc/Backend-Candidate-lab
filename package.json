@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "runTests"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
