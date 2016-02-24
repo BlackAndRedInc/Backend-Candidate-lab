@@ -1,85 +1,87 @@
-Black & Red Inc. Backend-Candidate-lab
+#Black & Red Inc. Backend-Candidate-lab
+### Anthony Chavez
 =====================
 
-Hello and thank you for taking the time to work on this lab!
+## TOC
+<!-- MarkdownTOC -->
 
-This lab is an opportunity for us to have a conversation about practices, conventions, and workflow.
-It will also help us better understand you as a developer. 
-Please use this as a way to communicate through your craft.
+- [Stack](#stack)
+- [Running the Environment](#running-the-environment)
+- [Testing](#testing)
+- [API Spec](#api-spec)
+- [TODO](#todo)
 
-## Your Task
+<!-- /MarkdownTOC -->
 
-One of the most common tasks for a backend developer is to create an API that can be used by a "client".  That "client" might be a website, mobile app, kiosk, etc.  Your task is to create a RESTful API that can be used to store, retrieve, update, and delete notes.
 
-*This lab is meant to take no more than 4 hours to complete.*  If you run out of time you may explain where you left off and any work that would still need to be done.
+## Stack
 
-## Language / DB
+- [NodeJS](https://nodejs.org/)
+- [Express](http://expressjs.com/)
+- [MongoDB](https://www.mongodb.org/downloads#production)
+- [mongoose](http://mongoosejs.com/)
+- [mocha](https://mochajs.org/)
 
-Here at B&R most of our work is in: Node.js, PHP, C#/.NET.  However, you may use any language and/or framework you'd like to create the API.
+## Running the Environment
 
-Most of our DBs are typically one of: MongoDB, MySQL, SQL Server.  Again, you may choose any DB that you'd like.
+**Spinup MongoDB**
 
-## Considerations
+``` mongod ```
 
-Some things you may want to consider when designing how your API will function:
 
-* Maintainability
-* Security
-* Scalability
+**Open a Mongo shell and switch to the DB** (in new terminal)
 
-## API Requirements
+``` mongo ```
+``` use blackRedBeLab ```
 
-These are the most basic requirements that the API should fulfill.  Feel free to expand on this feature set as you see fit or as time permits.
+**Import the sample data (you will need this for the tests to pass, in a new terminal, not the mongo shell)**
 
-### Response format
+``` mongoimport --db blackRedBeLab --collection usrlogins --file {abs_path_to_dev_dir}/sample_data/usrLogins.json ```
 
-Responses from the API will be JSON
 
-### Login/User management
+**Install Node Deps** (in new terminal)
 
-You may create your own system or tie in to existing login solutions (Google, Facebook, Twitter, etc.)
+``` npm install ```
 
-Users will be able to:
+**Start Server**
 
-1. Create accounts
-2. Login with their accounts
+``` npm start ```
 
-### Notes
+OR if you have PM2 installed
 
-1. Notes will contain at minimum 2 text fields - a 'title', and 'description'
-2. Notes will have CRUD capabilities (Create, Read, Update, Delete)
-3. Notes are specific to and can only be accessed by the user that creates them (One 'user' to Many 'notes')
-4. Notes may contain PII (personally identifiable information) or other sensitive information
+```pm2 start server.js```
 
-## Setup
 
-1. Fork this repo and clone to your computer
-2. Setup the project in your prefered IDE
-3. Create the API
-4. When finished, submit a Pull Request back to the 'master' branch of this repository
 
-## Documentation
 
-Place documentation in the [docs/](docs) folder
+## Testing
 
-### API Specs
+``` mocha ```
 
-When creating an API it's important for the consumer of your services to understand how they work.  Create some documentation for your services so that another developer could create a website based on your API using only this document.
 
-### Project Setup
 
-Include any steps that need to be taken in order to set up this project and run it on a new server.
+## API Spec
 
-## Workflow
 
-Please make atomic commits (commit often) as you progress. 
-Be sure to provide useful commit messages to illustrate milestones and workflow.
-Submit a pull request when you are finished and satisfied with your work.
+``` / ``` GET
 
-## Bonus
+``` /users ``` GET | POST
 
-1. Prove that your API works as expected by writing unit tests around your services.
-2. Put your services up on a server where they can be actively tested and include the link with your pull request.
 
-## License
-[MIT](http://opensource.org/licenses/MIT)
+
+``` /users/:id ``` GET | PUT | DELETE 
+
+example : ``` localhost:3000/users/56ccd18fdaaa556655c78100 ```
+
+
+
+
+## TODO
+
+- Linting, code style normalization
+- Configuration module for DB path, logging, etc... scalability stuff so we can use app.configure
+- Test coverage for PUT & DELETE operations on users/:id
+- Create authentication route, tokenize, lock down API calls
+- Abstract Server into router module and providers (with handlers) for each aspect of API
+- Create routes/logic for note lookup
+- Document API
