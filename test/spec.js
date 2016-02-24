@@ -4,9 +4,10 @@ var request = require('supertest');
 var mongoose = require('mongoose');
 
 describe('Routing', function() {
-  var url = 'localhost:3000';
-  // within before() you can run all the operations that are needed to setup your tests. In this case
-  // I want to create a connection with the database, and when I'm done, I call done().
+  var url = 'localhost:3000',
+    route = '',
+    body = {};
+
   before(function(done) {
     mongoose.connect('mongodb://localhost:27017/blackRedBeLab');                            
     done();
@@ -29,7 +30,7 @@ describe('Routing', function() {
   });
 
   describe('Users Root API', function() {
-    var route = '/users'
+    route = '/users'
 
     it('response should return an array of users', function(done){
       request(url)
@@ -63,7 +64,7 @@ describe('Routing', function() {
   });
 
   describe('Users Root API', function() {
-    var route = '/users'
+    route = '/users'
 
     it('response should return an array of users', function(done){
       request(url)
@@ -97,7 +98,7 @@ describe('Routing', function() {
 
 
     it('should accept a properly formatted POST', function(done){
-      var body = {
+      body = {
         "email" : "tautologist@record.co.uk",
         "password" : "QBqWksy"
       };
@@ -135,7 +136,9 @@ describe('Routing', function() {
     });
 
     //TODO : Test for Update
+
     //TODO : Test for Delete
+
   });
 
 });

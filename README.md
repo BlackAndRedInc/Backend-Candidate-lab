@@ -52,27 +52,32 @@ OR if you have PM2 installed
 
 ## Testing
 
-```mocha```
+``` mocha ```
 
 
 
 ## API Spec
 
-```/```
 
-GET, POST
-```/users```
+``` / ``` GET
 
-GET, PUT, DELETE
-```/users/:id``` example : ```localhost:3000/users/56ccd18fdaaa556655c78100```
+``` /users ``` GET | POST
+
+
+
+``` /users/:id ``` GET | PUT | DELETE 
+
+example : ``` localhost:3000/users/56ccd18fdaaa556655c78100 ```
 
 
 
 
 ## TODO
 
+- Linting, code style normalization
+- Configuration module for DB path, logging, etc... scalability stuff so we can use app.configure
 - Test coverage for PUT & DELETE operations on users/:id
 - Create authentication route, tokenize, lock down API calls
-- Abstract Server into router module and providers for each aspect of API
+- Abstract Server into router module and providers (with handlers) for each aspect of API
 - Create routes/logic for note lookup
 - Document API
