@@ -36,7 +36,7 @@
 
 **Import the sample data (you will need this for the tests to pass, in a new terminal, not the mongo shell)**
 
-``` mongoimport --db blackRedBeLab --collection userlogins --file {abs_path_to_dev_dir}/sample_data/userLogins.json ```
+``` mongoimport --db blackRedBeLab --collection usrlogins --file {abs_path_to_dev_dir}/sample_data/usrLogins.json ```
 
 
 **Install Node Deps** (in new terminal)
