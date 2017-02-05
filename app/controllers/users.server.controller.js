@@ -94,3 +94,22 @@ exports.userByUsername = (req, res, next) => {
     }
   });
 };
+
+// test for existing username that is not set to deleted
+exports.userByUsernameDiffID = (req, res, next) => {
+  User.findOne({
+    id: { $ne: req.user.id }, 
+    username: req.body.username,
+    deleted: false
+    }, (err, user) => {
+    if(err) {
+      return next(err);
+    } else {
+      if (user) {
+        res.status(200).json({apiResponse:"Username already exists"});
+        return;
+      };
+      next();
+    }
+  });
+};

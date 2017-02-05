@@ -10,7 +10,7 @@ module.exports = (app) => {
   // add routes to get, update, delete users by userID
   app.route('/users/:userId')
     .get(users.read)
-    .put(users.update)
+    .put(users.userByUsernameDiffID, users.update)
     .delete(users.delete);
 
   app.param('userId', users.userByID);
