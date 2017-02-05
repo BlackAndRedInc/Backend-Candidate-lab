@@ -18,11 +18,11 @@ Place any related documentation in this folder.
 * Implemented a MongoDB design principle of not removing records but rather setting a delete boolean to true.  Prefer to maintain data and flag as deleted versus removal for historical and database integrity.
 
 # Technology Stack
-*[NodeJS - Javascript runtime](https://nodejs.org/)<br/>
-*[Express - Application framework](http://expressjs.com/)<br/>
-*[MongoDB - NoSQL data store](https://www.mongodb.org)<br/>
-*[Mongoose - mongodb middleware and object modeler](http://mongoosejs.com/)<br/>
-*[Passport - authentication middleware](http://passportjs.org/)<br/>
+* [NodeJS - Javascript runtime](https://nodejs.org/)<br/>
+* [Express - Application framework](http://expressjs.com/)<br/>
+* [MongoDB - NoSQL data store](https://www.mongodb.org)<br/>
+* [Mongoose - mongodb middleware and object modeler](http://mongoosejs.com/)<br/>
+* [Passport - authentication middleware](http://passportjs.org/)<br/>
 
 # Requirements
 ###MongoDB running and accessible via localhost without user authentication.
@@ -34,8 +34,9 @@ Place any related documentation in this folder.
 
 ##Install Node Modules via terminal
 
-``` cd {project folder}
-    npm install
+```
+cd {project folder}
+npm install
 ```
 
 ##Startup Project (requires port 3000 to be available)
@@ -61,8 +62,8 @@ $ curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic dXNl
 ```
 
 # Next Steps
-*Add and strengthen Passport authentication strategies.
-*Consider requiring user authentication for user object get / update / delete.  Business logic interpretation my dictate choice.
-*Add additional input validation and consider less flexible input object saves.
-*Implement unit testing
-*Improve documentation
+* Add and strengthen Passport authentication strategies.
+* Consider requiring user authentication for user object get / update / delete.  Business logic interpretation my dictate choice.
+* Add additional input validation and consider less flexible input object saves.
+* Implement unit testing
+* Improve documentation
