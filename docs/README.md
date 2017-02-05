@@ -44,7 +44,7 @@ This can be accomplished via a REST client and posting to the CreateUser entry p
 
 Notes CRUD operations require browser authentication with the appropriate Authorization header set via input of an existing username and password.
 This would be best tested via a REST client but the following curl command should work on linux/mac to create a note if the simple user above has been created.
-``` $ curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=" -d '{"username":"username","password":"password"}' localhost:3000/api/v1/notes ```
+``` $ curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=" -d '{"title":"test note title","description":"test note description"}' localhost:3000/api/v1/notes ```
 
 # Next Steps
 ..*Add and strengthen Passport authentication strategies.
