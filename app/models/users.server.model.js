@@ -24,6 +24,7 @@ const UserSchema = new Schema({
 
 //Before saving password create random salt and hash
 UserSchema.pre('save', function(next) {
+    this.increment();
     if (this.password) {
         this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
         this.password = this.hashPassword(this.password);
@@ -33,8 +34,12 @@ UserSchema.pre('save', function(next) {
 
 // has the password with the users salt value
 UserSchema.methods.hashPassword = function(password) {
-    return crypto.pbkdf2Sync(password, this.salt, 10000,
-        64).toString('base64');
+    return crypto.pbkdf2Sync(
+      password,
+      this.salt,
+      10000,
+      64,
+      'sha1').toString('base64');
 };
 
 // authenticate provided password

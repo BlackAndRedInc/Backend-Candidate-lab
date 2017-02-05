@@ -51,8 +51,9 @@ exports.delete = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-        res.status(200).json(req.user);
+        res.status(200).json({apiResponse:"User Deleted"});
     }
+    next();
   });
 };
 
