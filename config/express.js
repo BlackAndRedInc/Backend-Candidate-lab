@@ -25,5 +25,8 @@ module.exports = function () {
   // import the default route
   require('../app/routes/index.server.routes')(app);
 
+  // import the users api routes
+  require('../app/routes/users.server.routes')(app);
+
   return app;
 };

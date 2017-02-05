@@ -6,7 +6,7 @@ module.exports = () => {
   const db = mongoose.connect(config.db);
 
   // init User model
-  require('../app/models/user.server.model');
+  require('../app/models/users.server.model');
 
   return db;
 };

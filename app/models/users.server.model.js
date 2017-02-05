@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     username: {
         type: String,
-        unique: true,
         required: 'Username is required',
         trim: true
     },
@@ -20,11 +19,8 @@ const UserSchema = new Schema({
     deleted: {
       type: Boolean,
       default: false
-    },
-    {
-      timestamps: true
     }
-});
+}, { timestamps: { createdAt: 'createdate', updatedAt: 'updatedate' } });
 
 //Before saving password create random salt and hash
 UserSchema.pre('save', function(next) {
