@@ -16,11 +16,13 @@
 
 * **Data Params**
 
-```{
+```javascript
+  {
   title=[string],
   description=[string]
   }
-```  
+```
+
 * **Success Response:**
 
   * **Code:** 200 <br />
