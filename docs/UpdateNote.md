@@ -19,10 +19,11 @@
 
 * **Data Params**
 
-```{
+```javascript
+{
   username=[string],
   password=[string]
-  }
+}
 ```  
 
 * **Success Response:**

@@ -17,10 +17,11 @@
 * **Data Params**
 
 **Required:**
-```{
+```javascript
+{
   username=[string],
   password=[string]
-  }
+}
 ```  
 * **Success Response:**
 

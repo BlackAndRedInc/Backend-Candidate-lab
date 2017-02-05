@@ -45,7 +45,7 @@ npm install
  npm start
 ```
 
-###Shutdown project with Ctrl-C
+##Shutdown project with Ctrl-C
 
 ##Create a user to test with
 This can be accomplished via a REST client and posting to the CreateUser entry point or via curl on linux/mac
