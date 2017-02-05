@@ -20,7 +20,8 @@ const NoteSchema = new Schema({
     },
     deleted: {
       type: Boolean,
-      default: false
+      default: false,
+      select:false
     }
 }, { timestamps: { createdAt: 'createdate', updatedAt: 'updatedate' } });
 

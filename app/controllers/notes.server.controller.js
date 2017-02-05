@@ -18,7 +18,7 @@ exports.list = (req, res, next) => {
   Note.find({
     creator: req.user.id,
     deleted: false
-  }).sort('-created').exec((err, notes) => {
+  }, { title: 1, description: 1, createdate: 1, updatedate: 1 }).sort('-createdate').exec((err, notes) => {
     if(err) {
       return next(err);
     }else{
@@ -29,7 +29,7 @@ exports.list = (req, res, next) => {
 
 // endpoint for the /api/notes/:noteID GET
 exports.read = (req, res) => {
-  res.json(req.note);
+  res.status(200).json({title: req.note.title, description: req.note.description, createdate: req.note.createdate, updatedate: req.note.updatedate});
 };
 
 // endpoint for the /api/notes/:noteID PUT
@@ -71,7 +71,7 @@ exports.noteByID = (req, res, next, id) => {
       if (note) {
         req.note = note;
       } else {
-        res.status(200).json({apiResponse:'Note Not Found'});
+        res.status(422).json({apiResponse:'Note Not Found'});
         return;
       };
       next();
@@ -81,7 +81,7 @@ exports.noteByID = (req, res, next, id) => {
 
 exports.isAuthorized = (req, res, next) => {
     if (!req.note.creator.equals(req.user.id)) {
-        return res.status(403).json({apiResponse:'User Is Not Authorized'});
+        return res.status(401).json({apiResponse:'User Is Not Authorized'});
     };
     next();
 };

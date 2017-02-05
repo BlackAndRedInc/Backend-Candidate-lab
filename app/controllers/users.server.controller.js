@@ -6,6 +6,12 @@ exports.create = (req, res, next) => {
   const user = new User(req.body);
   user.save((err) => {
     if(err) {
+      switch (err.name) {
+        case 'ValidationError':
+          res.status(422).json({apiResponse:'User Validation Error'});
+          return;
+        break;
+      };
       return next(err);
     } else {
       res.status(200).json({apiResponse:'User Created'});
@@ -15,7 +21,7 @@ exports.create = (req, res, next) => {
 
 // endpoint for the /api/users/:userID GET
 exports.read = (req, res) => {
-  res.json(req.user);
+  res.status(200).json({username: req.user.username, createdate: req.user.createdate, updatedate: req.user.updatedate});
 };
 
 // endpoint for the /api/users/:userID PUT
@@ -57,7 +63,7 @@ exports.userByID = (req, res, next, id) => {
       if (user) {
         req.user = user;
       } else {
-        res.status(200).json({apiResponse:'User Not Found'});
+        res.status(422).json({apiResponse:'User Not Found'});
         return;
       };
       next();
@@ -75,7 +81,7 @@ exports.userByUsername = (req, res, next) => {
       return next(err);
     } else {
       if (user) {
-        res.status(200).json({apiResponse:'Username already exists'});
+        res.status(422).json({apiResponse:'Username already exists'});
         return;
       };
       next();
@@ -94,7 +100,7 @@ exports.userByUsernameDiffID = (req, res, next) => {
       return next(err);
     } else {
       if (user) {
-        res.status(200).json({apiResponse:'Username already exists'});
+        res.status(422).json({apiResponse:'Username already exists'});
         return;
       };
       next();
