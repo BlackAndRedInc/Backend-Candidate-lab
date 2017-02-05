@@ -11,5 +11,9 @@ module.exports = () => {
   // init User model
   require('../app/models/users.server.model');
 
+  // init Note model
+  require('../app/models/notes.server.model');
+
+
   return db;
 };

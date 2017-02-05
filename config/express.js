@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const compress = require('compression');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const passport = require('passport');
 
 module.exports = function () {
   const app = express();
@@ -22,11 +23,15 @@ module.exports = function () {
   app.use(bodyParser.json());
   app.use(methodOverride());
 
-  // import the default route
-  require('../app/routes/index.server.routes')(app);
+  // Configure the Passport middleware
+	app.use(passport.initialize());
 
   // import the users api routes
   require('../app/routes/users.server.routes')(app);
+  // import the notes api routes
+  require('../app/routes/notes.server.routes')(app);
+  // import the default route
+  require('../app/routes/index.server.routes')(app);
 
   return app;
 };

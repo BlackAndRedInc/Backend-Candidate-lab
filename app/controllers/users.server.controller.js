@@ -98,7 +98,7 @@ exports.userByUsername = (req, res, next) => {
 // test for existing username that is not set to deleted
 exports.userByUsernameDiffID = (req, res, next) => {
   User.findOne({
-    id: { $ne: req.user.id }, 
+    id: { $ne: req.user.id },
     username: req.body.username,
     deleted: false
     }, (err, user) => {
@@ -112,4 +112,14 @@ exports.userByUsernameDiffID = (req, res, next) => {
       next();
     }
   });
+};
+
+// test if a user is authenticated
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not logged in'
+    });
+  }
+  next();
 };

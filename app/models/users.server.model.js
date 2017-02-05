@@ -24,7 +24,6 @@ const UserSchema = new Schema({
 
 //Before saving password create random salt and hash
 UserSchema.pre('save', function(next) {
-    this.increment();
     if (this.password) {
         this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
         this.password = this.hashPassword(this.password);
