@@ -8,7 +8,7 @@ exports.create = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json(note);
+      res.status(200).json({apiResponse:'Note Created'});
     }
   });
 };
@@ -40,7 +40,7 @@ exports.update = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json(note);
+      res.status(200).json({apiResponse:'Note Updated'});
     }
   });
 };
@@ -53,7 +53,7 @@ exports.delete = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-        res.status(200).json({apiResponse:"Note Deleted"});
+        res.status(200).json({apiResponse:'Note Deleted'});
     }
     next();
   });
@@ -71,7 +71,7 @@ exports.noteByID = (req, res, next, id) => {
       if (note) {
         req.note = note;
       } else {
-        res.status(200).json({apiResponse:"Note Not Found"});
+        res.status(200).json({apiResponse:'Note Not Found'});
         return;
       };
       next();
@@ -81,7 +81,7 @@ exports.noteByID = (req, res, next, id) => {
 
 exports.isAuthorized = (req, res, next) => {
     if (!req.note.creator.equals(req.user.id)) {
-        return res.status(403).json({apiResponse:"User Is Not Authorized"});
+        return res.status(403).json({apiResponse:'User Is Not Authorized'});
     };
     next();
 };

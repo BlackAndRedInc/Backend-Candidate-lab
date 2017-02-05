@@ -1,4 +1,5 @@
 const User = require('mongoose').model('User');
+const passport = require('passport');
 
 // endpoint for the /api/users POST
 exports.create = (req, res, next) => {
@@ -7,20 +8,7 @@ exports.create = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json(user);
-    }
-  });
-};
-
-// endpoint for the /api/users GET
-exports.list = (req, res, next) => {
-  User.find({
-    deleted: false
-  }, (err, users) => {
-    if(err) {
-      return next(err);
-    }else{
-      res.status(200).json(users);
+      res.status(200).json({apiResponse:'User Created'});
     }
   });
 };
@@ -38,7 +26,7 @@ exports.update = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json(user);
+      res.status(200).json({apiResponse:'User Updated'});
     }
   });
 };
@@ -51,7 +39,7 @@ exports.delete = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-        res.status(200).json({apiResponse:"User Deleted"});
+        res.status(200).json({apiResponse:'User Deleted'});
     }
     next();
   });
@@ -69,7 +57,7 @@ exports.userByID = (req, res, next, id) => {
       if (user) {
         req.user = user;
       } else {
-        res.status(200).json({apiResponse:"User Not Found"});
+        res.status(200).json({apiResponse:'User Not Found'});
         return;
       };
       next();
@@ -87,7 +75,7 @@ exports.userByUsername = (req, res, next) => {
       return next(err);
     } else {
       if (user) {
-        res.status(200).json({apiResponse:"Username already exists"});
+        res.status(200).json({apiResponse:'Username already exists'});
         return;
       };
       next();
@@ -106,7 +94,7 @@ exports.userByUsernameDiffID = (req, res, next) => {
       return next(err);
     } else {
       if (user) {
-        res.status(200).json({apiResponse:"Username already exists"});
+        res.status(200).json({apiResponse:'Username already exists'});
         return;
       };
       next();
@@ -117,9 +105,9 @@ exports.userByUsernameDiffID = (req, res, next) => {
 // test if a user is authenticated
 exports.requiresLogin = function(req, res, next) {
   if (!req.isAuthenticated()) {
-    return res.status(401).send({
-      message: 'User is not logged in'
-    });
+    return res.status(401).json({apiResponse:'User is not logged in'});
   }
   next();
 };
+
+exports.isAuthenticated = passport.authenticate('basic', { session : false });
