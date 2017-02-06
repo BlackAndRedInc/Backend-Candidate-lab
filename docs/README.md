@@ -58,26 +58,21 @@ Copy the id returned in the JSON response object from the create call and procee
 
 ##Get a user object
 This can be accomplished via a REST client and executing a GET
-against the /api/v1/users/:userid entry point or via curl on linux/mac.  
-Substitute the USERID from the Create User response for {INSERTUSERID}.
+against the /api/v1/users/:userid entry point or via curl on linux/mac.  Substitute the "id" from the Create User response for {INSERTUSERID}.
 
 ```
 curl -X GET -H "Content-Type: application/json" localhost:3000/api/v1/users/{INSERTUSERID}
 ```
 
 ##Update a user object
-This can be accomplished via a REST client and executing a PUT
-against the /api/v1/users/:userid entry point or via curl on linux/mac.  
-Substitute the "id" from the Create User response for {INSERTUSERID}.
+This can be accomplished via a REST client and executing a PUT against the /api/v1/users/:userid entry point or via curl on linux/mac. Substitute the "id" from the Create User response for {INSERTUSERID}.
 
 ```
 curl -X PUT -H "Content-Type: application/json" -d '{"username":"newusername","password":"newpassword"}' localhost:3000/api/v1/users/{INSERTUSERID}
 ```
 
 ##Delete a user object
-This can be accomplished via a REST client and executing a DELETE
-against the /api/v1/users/:userid entry point or via curl on linux/mac.  
-Substitute the "id" from the Create User response for {INSERTUSERID}.
+This can be accomplished via a REST client and executing a DELETE against the /api/v1/users/:userid entry point or via curl on linux/mac. Substitute the "id" from the Create User response for {INSERTUSERID}.
 
 ```
 curl -X DELETE -H "Content-Type: application/json" localhost:3000/api/v1/users/{INSERTUSERID}
@@ -102,26 +97,21 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm
 Copy the id returned in the JSON response object from the create call and proceed to the next step.
 
 ##Update a note object
-This can be accomplished via a REST client and executing a PUT
-against the /api/v1/users/:userid entry point or via curl on linux/mac.  
-Substitute the captured "id" from the Create Note response for {INSERTNOTEID}.
+This can be accomplished via a REST client and executing a PUT against the /api/v1/users/:userid entry point or via curl on linux/mac. Substitute the captured "id" from the Create Note response for {INSERTNOTEID}.
 
 ```
 curl -X PUT -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ="  -d '{"title":"new note title","description":"new note description"}' localhost:3000/api/v1/notes/{INSERTNOTEID}
 ```
 
 ##List the note objects for a user
-This can be accomplished via a REST client and executing a PUT
-against the /api/v1/users/:userid entry point or via curl on linux/mac.  
+This can be accomplished via a REST client and executing a PUT against the /api/v1/users/:userid entry point or via curl on linux/mac.  
 
 ```
 curl -X GET -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ="  localhost:3000/api/v1/notes/
 ```
 
 ##Delete a note object
-This can be accomplished via a REST client and executing a DELETE
-against the /api/v1/users/:userid entry point or via curl on linux/mac.  
-Substitute the captured "id" from the Create Note response for {INSERTNOTEID}.
+This can be accomplished via a REST client and executing a DELETE against the /api/v1/users/:userid entry point or via curl on linux/mac. Substitute the captured "id" from the Create Note response for {INSERTNOTEID}.
 
 ```
 curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ="  localhost:3000/api/v1/notes/{INSERTNOTEID}
