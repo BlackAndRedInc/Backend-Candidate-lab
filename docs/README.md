@@ -1,8 +1,15 @@
 # B&R Backend Candidate Lab
 
-## Documentation
+## API Methods documentation
 
-Place any related documentation in this folder.
+* [CreateUser Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/CreateUser.md)
+* [GetUser Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/GetUser.md)
+* [UpdateUser Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/UpdateUser.md)
+* [CreateNote Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/CreateNote.md)
+* [GetUserNotes Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/GetUserNotes.md)
+* [GetNote Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/GetNote.md)
+* [UpdateNote Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/UpdateNote.md)
+* [DeleteNote Documentation](https://github.com/koofka/Backend-Candidate-lab/blob/master/docs/DeleteNote.md)
 
 ## Author
 ### [Jason Suss] (https://github.com/koofka)
@@ -18,11 +25,11 @@ Place any related documentation in this folder.
 * Implemented a MongoDB design principle of not removing records but rather setting a delete boolean to true.  Prefer to maintain data and flag as deleted versus removal for historical and database integrity.
 
 # Technology Stack
-* [NodeJS - Javascript runtime](https://nodejs.org/)<br/>
-* [Express - Application framework](http://expressjs.com/)<br/>
-* [MongoDB - NoSQL data store](https://www.mongodb.org)<br/>
-* [Mongoose - mongodb middleware and object modeler](http://mongoosejs.com/)<br/>
-* [Passport - authentication middleware](http://passportjs.org/)<br/>
+* [NodeJS - Javascript runtime](https://nodejs.org/)
+* [Express - Application framework](http://expressjs.com/)
+* [MongoDB - NoSQL data store](https://www.mongodb.org)
+* [Mongoose - mongodb middleware and object modeler](http://mongoosejs.com/)
+* [Passport - authentication middleware](http://passportjs.org/)
 
 # Requirements
 ###MongoDB running and accessible via localhost without user authentication.
