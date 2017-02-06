@@ -1,7 +1,7 @@
 **UPDATE NOTE**
 ----
-  Updates an existing note. Basic browser authentication with a valid username and password required.
-
+  Updates an existing note if the authorized user matches the creator of the note.. Basic browser authentication with a valid username and password required.
+  
 * **URL**
 
   /api/v1/notes/:noteid

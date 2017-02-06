@@ -1,6 +1,6 @@
 **GET NOTE**
 ----
-  Fetches an existing note.
+  Fetches an existing note if the authorized user matches the creator of the note. Basic browser authentication with a valid username and password required.
 
 * **URL**
 

@@ -1,6 +1,6 @@
 **DELETE NOTE**
 ----
-  Deletes an existing note. Basic browser authentication with a valid username and password required.
+  Deletes an existing note if the authorized user matches the creator of the note.. Basic browser authentication with a valid username and password required.
 
 * **URL**
 

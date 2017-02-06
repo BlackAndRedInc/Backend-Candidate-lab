@@ -30,8 +30,3 @@
 
   * **Code:** 422 UNPROCESSABLE ENTRY <br />
   **Content:** `{apiResponse:'User Not Found'}`
-
-  OR
-
-  * **Code:** 422 UNPROCESSABLE ENTRY <br />
-    **Content:** `{apiResponse:'Username already exists'}`
