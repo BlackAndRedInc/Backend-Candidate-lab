@@ -119,8 +119,9 @@ curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Basic dXNl
 
 # Next Steps
 * Add and strengthen Passport authentication strategies.
-* Consider requiring user authentication for user object get / update / delete.  Business logic interpretation my dictate choice.
-* Add additional input validation and consider less flexible input object saves.
+* Consider requiring user authentication for user object get / update / delete.  Business logic interpretation would dictate choice.
+* Consider additional input validation and consider less flexible input object saves.
 * Implement unit testing
 * Improve documentation
 * Add alternative environment production variable support and configurations
+* Setup production server
