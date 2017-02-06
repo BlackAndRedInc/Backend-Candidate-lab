@@ -24,7 +24,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ apiResponse : 'Note Deleted' }`
+    **Content:** `{ apiResponse : 'Note Deleted', id: [noteid], createdate: [createdate], updatedate: [updatedate] }`
 
 * **Error Response:**
 

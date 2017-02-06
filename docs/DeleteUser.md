@@ -24,7 +24,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ apiResponse : 'User Deleted' }`
+    **Content:** `{ apiResponse : 'User Deleted', id:[userid], createdate: [createdate], updatedate: [updatedate]} }`
 
 * **Error Response:**
 

@@ -30,7 +30,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ apiResponse : 'User Updated' }`
+    **Content:** `{ apiResponse : 'User Updated', id:[userid], username: [username], createdate: [createdate], updatedate: [updatedate]} }`
 
 * **Error Response:**
 

@@ -47,18 +47,84 @@ npm install
 
 ##Shutdown project with Ctrl-C
 
+#Users API Tests
 ##Create a user to test with
-This can be accomplished via a REST client and posting to the CreateUser entry point or via curl on linux/mac
+This can be accomplished via a REST client and executing a POST to the /api/v1/users entry point or via curl on linux/mac
 
 ```
-$ curl -X POST -H "Content-Type: application/json" -d '{"username":"username","password":"password"}' localhost:3000/api/v1/users
+curl -X POST -H "Content-Type: application/json" -d '{"username":"testusername","password":"testpassword"}' localhost:3000/api/v1/users
+```
+Copy the id returned in the JSON response object from the create call and proceed to the next step
+
+##Get a user object
+This can be accomplished via a REST client and executing a GET
+against the /api/v1/users/:userid entry point or via curl on linux/mac.  
+Substitute the USERID from the Create User response for {INSERTUSERID}.
+
+```
+curl -X GET -H "Content-Type: application/json" localhost:3000/api/v1/users/{INSERTUSERID}
 ```
 
+##Update a user object
+This can be accomplished via a REST client and executing a PUT
+against the /api/v1/users/:userid entry point or via curl on linux/mac.  
+Substitute the "id" from the Create User response for {INSERTUSERID}.
+
+```
+curl -X PUT -H "Content-Type: application/json" -d '{"username":"newusername","password":"newpassword"}' localhost:3000/api/v1/users/{INSERTUSERID}
+```
+
+##Delete a user object
+This can be accomplished via a REST client and executing a DELETE
+against the /api/v1/users/:userid entry point or via curl on linux/mac.  
+Substitute the "id" from the Create User response for {INSERTUSERID}.
+
+```
+curl -X DELETE -H "Content-Type: application/json" localhost:3000/api/v1/users/{INSERTUSERID}
+```
+
+#Notes API Tests
 Notes CRUD operations require browser authentication with the appropriate Authorization header set via input of an existing username and password.
+
+##Create a user to test note creation with
+This can be accomplished via a REST client and executing a POST to the /api/v1/users entry point or via curl on linux/mac
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"username":"username","password":"password"}' localhost:3000/api/v1/users
+```
+
+##Create a note
 This would be best tested via a REST client but the following curl command should work on linux/mac to create a note if the simple user above has been created.
 
 ```
-$ curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=" -d '{"title":"test note title","description":"test note description"}' localhost:3000/api/v1/notes
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=" -d '{"title":"test note title","description":"test note description"}' localhost:3000/api/v1/notes
+```
+Copy the id returned in the JSON response object from the create call and proceed to the next step.
+
+##Update a note object
+This can be accomplished via a REST client and executing a PUT
+against the /api/v1/users/:userid entry point or via curl on linux/mac.  
+Substitute the captured "id" from the Create Note response for {INSERTNOTEID}.
+
+```
+curl -X PUT -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ="  -d '{"title":"new note title","description":"new note description"}' localhost:3000/api/v1/notes/{INSERTNOTEID}
+```
+
+##List the note objects for a user
+This can be accomplished via a REST client and executing a PUT
+against the /api/v1/users/:userid entry point or via curl on linux/mac.  
+
+```
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ="  localhost:3000/api/v1/notes/
+```
+
+##Delete a note object
+This can be accomplished via a REST client and executing a DELETE
+against the /api/v1/users/:userid entry point or via curl on linux/mac.  
+Substitute the captured "id" from the Create Note response for {INSERTNOTEID}.
+
+```
+curl -X DELETE -H "Content-Type: application/json" -H "Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ="  localhost:3000/api/v1/notes/{INSERTNOTEID}
 ```
 
 # Next Steps
@@ -67,3 +133,4 @@ $ curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic dXNl
 * Add additional input validation and consider less flexible input object saves.
 * Implement unit testing
 * Improve documentation
+* Add alternative environment production variable support and configurations

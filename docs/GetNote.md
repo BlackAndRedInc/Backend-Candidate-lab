@@ -23,7 +23,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ title : [title], description: [description], createdate: [createdate], updatedate: [updatedate] }`
+    **Content:** `{ apiResponse:'Note Retrieved', id: [noteid], title : [title], description: [description], createdate: [createdate], updatedate: [updatedate] }`
 
 * **Error Response:**
 

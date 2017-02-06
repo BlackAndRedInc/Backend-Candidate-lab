@@ -24,7 +24,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ username : [username], createdate: [createdate], updatedate: [updatedate] }`
+    **Content:** `{ apiResponse:'User Retrieved', id:[userid], username : [username], createdate: [createdate], updatedate: [updatedate] }`
 
 * **Error Response:**
 

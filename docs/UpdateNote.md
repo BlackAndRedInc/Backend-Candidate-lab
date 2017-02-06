@@ -29,7 +29,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ apiResponse : 'Note Updated' }`
+    **Content:** `{ apiResponse : 'Note Updated', id: [noteid], title: [title], description: [description], createdate: [createdate], updatedate: [updatedate] }`
 
 * **Error Response:**
 

@@ -26,7 +26,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ apiResponse : 'User Created' }`
+    **Content:** `{ apiResponse : 'User Created', id:[userid], username: [username], createdate: [createdate], updatedate: [updatedate]} }`
 
 * **Error Response:**
 

@@ -21,7 +21,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ id:[objectID] title : [title], description: [description], createdate: [createdate], updatedate: [updatedate] }`
+    **Content:** `{ id:[noteid] title : [title], description: [description], createdate: [createdate], updatedate: [updatedate] }`
 
 * **Error Response:**
 

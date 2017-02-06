@@ -8,7 +8,7 @@ exports.create = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json({apiResponse:'Note Created'});
+      res.status(200).json({apiResponse:'Note Created', id: note.id, title: note.title, description: note.description, createdate: note.createdate, updatedate: note.updatedate});
     }
   });
 };
@@ -18,7 +18,7 @@ exports.list = (req, res, next) => {
   Note.find({
     creator: req.user.id,
     deleted: false
-  }, { title: 1, description: 1, createdate: 1, updatedate: 1 }).sort('-createdate').exec((err, notes) => {
+  }, { id:1, title: 1, description: 1, createdate: 1, updatedate: 1 }).sort('-createdate').exec((err, notes) => {
     if(err) {
       return next(err);
     }else{
@@ -29,7 +29,7 @@ exports.list = (req, res, next) => {
 
 // endpoint for the /api/notes/:noteID GET
 exports.read = (req, res) => {
-  res.status(200).json({title: req.note.title, description: req.note.description, createdate: req.note.createdate, updatedate: req.note.updatedate});
+  res.status(200).json({apiResponse:'Note Retrieved', id: req.note.id, title: req.note.title, description: req.note.description, createdate: req.note.createdate, updatedate: req.note.updatedate});
 };
 
 // endpoint for the /api/notes/:noteID PUT
@@ -40,7 +40,7 @@ exports.update = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json({apiResponse:'Note Updated'});
+      res.status(200).json({apiResponse:'Note Updated', id: note.id, title: note.title, description: note.description, createdate: note.createdate, updatedate: note.updatedate});
     }
   });
 };
@@ -53,7 +53,7 @@ exports.delete = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-        res.status(200).json({apiResponse:'Note Deleted'});
+        res.status(200).json({apiResponse:'Note Deleted', id: note.id, createdate: note.createdate, updatedate: note.updatedate});
     }
     next();
   });

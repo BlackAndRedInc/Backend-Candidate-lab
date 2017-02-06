@@ -14,14 +14,14 @@ exports.create = (req, res, next) => {
       };
       return next(err);
     } else {
-      res.status(200).json({apiResponse:'User Created'});
+      res.status(200).json({apiResponse:'User Created', id:user.id, username: user.username, createdate: user.createdate, updatedate: user.updatedate});
     }
   });
 };
 
 // endpoint for the /api/users/:userID GET
 exports.read = (req, res) => {
-  res.status(200).json({username: req.user.username, createdate: req.user.createdate, updatedate: req.user.updatedate});
+  res.status(200).json({apiResponse:'User Retrieved', id:req.user.id, username: req.user.username, createdate: req.user.createdate, updatedate: req.user.updatedate});
 };
 
 // endpoint for the /api/users/:userID PUT
@@ -32,7 +32,7 @@ exports.update = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json({apiResponse:'User Updated'});
+      res.status(200).json({apiResponse:'User Updated', id:user.id, username: user.username, createdate: user.createdate, updatedate: user.updatedate});
     }
   });
 };
@@ -45,7 +45,7 @@ exports.delete = (req, res, next) => {
     if(err) {
       return next(err);
     } else {
-        res.status(200).json({apiResponse:'User Deleted'});
+        res.status(200).json({apiResponse:'User Deleted', id:user.id, createdate: user.createdate, updatedate: user.updatedate});
     }
     next();
   });
