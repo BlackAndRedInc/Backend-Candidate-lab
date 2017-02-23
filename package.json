@@ -1,0 +1,41 @@
+{
+  "name": "Backend-Candidate-lab",
+  "version": "0.5.0",
+  "description": "Black & Red Inc. Backend-Candidate-lab =====================",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koofka/Backend-Candidate-lab.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "Mongoose",
+    "Passport",
+    "RESTful API"
+  ],
+  "author": "Jason Suss <jason@primalstare.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koofka/Backend-Candidate-lab/issues"
+  },
+  "homepage": "https://github.com/koofka/Backend-Candidate-lab#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.16.0",
+    "compression": "^1.6.2",
+    "express": "^4.14.1",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.8.1",
+    "morgan": "^1.8.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0"
+  }
+}

@@ -1,0 +1,37 @@
+**UPDATE NOTE**
+----
+  Updates an existing note if the authorized user matches the creator of the note.. Basic browser authentication with a valid username and password required.
+  
+* **URL**
+
+  /api/v1/notes/:noteid
+
+* **Method:**
+
+  `PUT`
+
+*  **URL Params**
+
+  **Required:**
+
+  `noteid=[objectID]`
+
+
+* **Data Params**
+
+```javascript
+{
+  title=[string],
+  description=[string]
+}
+```  
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ apiResponse : 'Note Updated', id: [noteid], title: [title], description: [description], createdate: [createdate], updatedate: [updatedate] }`
+
+* **Error Response:**
+
+      * **Code:** 401 UNAUTHORIZED <br />
+      **Content:** `{ apiResponse : 'User Is Not Authorized' }`
