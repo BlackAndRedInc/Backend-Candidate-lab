@@ -25,17 +25,45 @@ exports.read = (req, res) => {
 };
 
 // endpoint for the /api/users/:userID PUT
+// found that the monogoose middleware was not executing on update and new password was not being hashed
+// changed the updat to find by update and implement the save method in order to access the model middleware
 exports.update = (req, res, next) => {
-  User.findByIdAndUpdate(req.user.id, req.body, {
-      'new': true
+  User.findOne({
+    _id: req.user.id,
+    deleted: false
     }, (err, user) => {
     if(err) {
       return next(err);
     } else {
-      res.status(200).json({apiResponse:'User Updated', id:user.id, username: user.username, createdate: user.createdate, updatedate: user.updatedate});
+      if(req.body.username) {
+        user.username = req.body.username;
+      }
+      if(req.body.password) {
+        user.password = req.body.password;
+      }
+      user.save((err, updatedUser) => {
+        if(err) {
+          return next(err);
+        } else {
+          res.status(200).json({apiResponse:'User Updated', id:updatedUser.id, username: updatedUser.username, createdate: updatedUser.createdate, updatedate: updatedUser.updatedate});
+        }
+      }
+     );
     }
   });
 };
+
+/*
+User.findByIdAndUpdate(req.user.id, req.body, {
+    'new': true
+  }, (err, user) => {
+  if(err) {
+    return next(err);
+  } else {
+    res.status(200).json({apiResponse:'User Updated', id:user.id, username: user.username, createdate: user.createdate, updatedate: user.updatedate});
+  }
+});
+*/
 
 // endpoint for the /api/users/:userID DELETE
 exports.delete = (req, res, next) => {
